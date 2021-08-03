@@ -4900,6 +4900,42 @@ article#comments #valine_container .vwrap .vemojis .vemoji,
 article#comments #valine_container .vwrap .vpreview .vemoji {
   max-height: 30px !important;
 }
+div.note {
+  background: #1e1e1f;
+  box-shadow: 0 2px 12px 0px #000;
+  border-left: 4px solid #a59fa5;
+}
+div.note.gray,
+div.note.info {
+  background: #3b3b3b !important;
+  border-color: #a59fa5 !important;
+}
+div.note::before,
+div.note.info::before {
+  color: #a59fa5;
+}
+div.note.red,
+div.note.danger,
+div.note.error {
+  background: #352222 !important;
+}
+div.note.yellow,
+div.note.warning {
+  background: #3b352c !important;
+}
+div.note.green,
+div.note.success,
+div.note.done {
+  background: #2b3129 !important;
+}
+div.note.blue,
+div.note.quote {
+  background: #232d39 !important;
+}
+div.note.light,
+div.note.clear {
+  border-left-color: rgba(165,159,165,0.388);
+}
 .animated {
   -webkit-animation-duration: 0.4s;
   animation-duration: 0.4s;
