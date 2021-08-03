@@ -2120,6 +2120,259 @@ div.fancybox .image-caption:empty {
 .article pre:hover .btn-copy {
   opacity: 1;
 }
+article#comments {
+  position: relative;
+}
+article#comments a {
+  border-bottom: none;
+}
+article#comments #valine_container >i {
+  display: block;
+  margin: 16px auto;
+}
+article#comments #valine_container img {
+  display: inline;
+}
+article#comments #valine_container .vwrap {
+  border-radius: 8px;
+  border-style: dashed;
+  border: 1px dashed rgba(238,238,238,0.3);
+  transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+}
+article#comments #valine_container .vwrap:hover {
+  border: 1px dashed #c85951;
+}
+article#comments #valine_container .vwrap .cancel-reply {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+article#comments #valine_container .vwrap .vheader {
+  margin: -10px;
+  padding: 5px 10px 0;
+  background: var(--color-block);
+}
+article#comments #valine_container .vwrap .vheader .vinput {
+  border-radius: 0;
+  border-bottom: 1px dashed transparent;
+}
+article#comments #valine_container .vwrap .vheader .vinput:hover {
+  border-bottom: 1px dashed #c85951;
+}
+article#comments #valine_container .vwrap .vheader .vinput:focus {
+  border-bottom: 1px solid #c85951;
+}
+article#comments #valine_container .vwrap .vedit .vicon {
+  height: 22px;
+}
+article#comments #valine_container .vwrap .vemojis,
+article#comments #valine_container .vwrap .vpreview {
+  background: var(--color-block);
+  border-radius: var(--border-codeblock);
+  padding: 8px;
+}
+article#comments #valine_container .vwrap .vemojis::-webkit-scrollbar,
+article#comments #valine_container .vwrap .vpreview::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+article#comments #valine_container .vwrap .vemojis::-webkit-scrollbar-track-piece,
+article#comments #valine_container .vwrap .vpreview::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+article#comments #valine_container .vwrap .vemojis::-webkit-scrollbar-thumb,
+article#comments #valine_container .vwrap .vpreview::-webkit-scrollbar-thumb {
+  background: #c85951;
+  cursor: pointer;
+  border-radius: 2px;
+}
+article#comments #valine_container .vwrap .vemojis::-webkit-scrollbar-thumb:hover,
+article#comments #valine_container .vwrap .vpreview::-webkit-scrollbar-thumb:hover {
+  background: #ff5722;
+}
+article#comments #valine_container .vwrap .vemojis .vemoji,
+article#comments #valine_container .vwrap .vpreview .vemoji {
+  max-height: 22px;
+  max-width: 100px;
+}
+article#comments #valine_container .vwrap .vemojis i,
+article#comments #valine_container .vwrap .vpreview i {
+  width: auto;
+  padding: 8px;
+  border-radius: 4px;
+  transition: box-shadow 0.2s ease-out, background 0.2s ease-out;
+}
+article#comments #valine_container .vwrap .vedit .vctrl span {
+  padding: 0;
+  margin: 10px;
+}
+article#comments #valine_container .vwrap .vedit span {
+  fill: var(--color-p);
+}
+article#comments #valine_container .vwrap .vedit span.actived {
+  fill: #c85951;
+}
+article#comments #valine_container .vcount {
+  color: var(--color-p);
+  font-size: 0.875rem;
+  padding: 0;
+  font-weight: inherit;
+}
+article#comments #valine_container .vcount .vnum {
+  color: var(--color-p);
+  font-size: 1.5rem;
+}
+article#comments #valine_container button {
+  border: none;
+  padding: 4px 2rem;
+  border-radius: 4px;
+  background: #353535;
+  color: var(--color-text);
+  line-height: 2;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+}
+article#comments #valine_container button:hover {
+  color: #ff5722;
+  background: #2c1711;
+}
+article#comments #valine_container button.vmore {
+  width: 100%;
+  padding: 8px 2rem;
+}
+article#comments #valine_container .vcards {
+  margin-top: 8px;
+}
+article#comments #valine_container .vcards >.vcard {
+  border-radius: 8px;
+  border: 1px dashed rgba(238,238,238,0.3);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+article#comments #valine_container .vcards .vh {
+  border-bottom: none;
+}
+article#comments #valine_container .vcards .vquote {
+  border-left: none;
+}
+article#comments #valine_container .vcards .vimg {
+  border: 1px solid #fff;
+  padding: 0;
+  background: var(--color-block);
+}
+article#comments #valine_container .vcards .vcontent.expand:before {
+  background: linear-gradient(180deg, rgba(21,16,16,0.9), rgba(58,58,58,0.9));
+}
+article#comments #valine_container .vcards .vcontent.expand:after {
+  background: rgba(58,58,58,0.9);
+  color: var(--color-text);
+}
+article#comments #valine_container .vcards .vhead span.vnick {
+  color: #d4d4d4;
+  cursor: default;
+}
+article#comments #valine_container .vcards .vhead a.vnick {
+  color: #ff9800;
+  font-weight: bold;
+}
+article#comments #valine_container .vcards .vhead a.vnick:hover {
+  color: #ff5722;
+}
+article#comments #valine_container .vcards .vhead .vsys {
+  margin: 2px;
+  padding: 1px 8px;
+  background-color: var(--color-block);
+  display: none;
+}
+article#comments #valine_container .vcards .vmeta .vat {
+  font-weight: bold;
+  color: var(--color-p);
+  float: none;
+  transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  padding: 4px 8px;
+  border-radius: 2px;
+}
+article#comments #valine_container .vcards .vmeta .vat:hover {
+  color: #ff5722;
+  background-color: var(--color-block);
+}
+article#comments #valine_container .vcards .vcontent {
+  padding-top: 0;
+}
+article#comments #valine_container .vcards .vcontent blockquote {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background: var(--color-block);
+  border-left: 4px solid #c85951;
+  border-radius: 4px;
+  transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+}
+article#comments #valine_container .vcards .vcontent code {
+  color: var(--color-p);
+  font-family: "JetBrainsMono Nerd Font Mono", Menlo, UbuntuMono, Monaco, monospace, courier, sans-serif;
+}
+article#comments #valine_container .vcards .vcontent pre {
+  background: var(--color-codeblock);
+}
+article#comments #valine_container .vcards .vcontent pre code {
+  border: none;
+}
+article#comments #valine_container .vcards .vcontent a {
+  color: #2196f3;
+  line-height: inherit;
+  transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+}
+article#comments #valine_container .vcards .vcontent a:hover {
+  color: #ff5722;
+  text-decoration: underline;
+}
+article#comments #valine_container .vcards .vcontent p {
+  color: var(--color-p);
+  margin-top: 1em;
+  margin-bottom: 1em;
+  line-height: inherit;
+}
+article#comments #valine_container .vcards .vcontent .vemoji {
+  max-height: 24px;
+  border-radius: 0;
+  margin-top: -10px;
+  max-width: 100px;
+}
+article#comments #valine_container .vempty {
+  color: var(--color-meta);
+}
+article#comments #valine_container .vpower,
+article#comments #valine_container .vpower a {
+  font-size: 0.78125rem;
+}
+article#comments #valine_container .vpower a {
+  color: var(--color-p);
+}
+article#comments #valine_container .vpower a:hover {
+  text-decoration: underline;
+  color: #ff5722;
+}
+article#comments #valine_container .vinput {
+  color: var(--color-text);
+}
+article#comments #valine_container p {
+  color: var(--color-text);
+}
 p,
 input,
 pre>span,
@@ -4618,6 +4871,34 @@ canvas {
 .aplayer .aplayer-list ol li.aplayer-list-light,
 .aplayer .aplayer-list ol li {
   color: #000;
+}
+.v[data-class=v] .vwrap {
+  background-color: rgba(0,0,0,0.467);
+}
+.v[data-class=v] .vwrap .vheader.item2 .vinput {
+  color: rgba(255,255,255,0.314);
+}
+.v[data-class=v] .status-bar,
+.v[data-class=v] .veditor,
+.v[data-class=v] .vinput,
+.v[data-class=v] p,
+.v[data-class=v] pre code {
+  color: #eee;
+}
+article#comments #valine_container .vwrap .vemojis,
+article#comments #valine_container .vwrap .vpreview,
+article#comments #valine_container .vwrap .vheader {
+  background: rgba(80,80,80,0.22);
+}
+article#comments #valine_container .vcards .vcontent .vemoji {
+  max-height: 60px !important;
+  border-radius: 5px !important;
+  margin-top: 0px !important;
+  max-width: 60px !important;
+}
+article#comments #valine_container .vwrap .vemojis .vemoji,
+article#comments #valine_container .vwrap .vpreview .vemoji {
+  max-height: 30px !important;
 }
 .animated {
   -webkit-animation-duration: 0.4s;
