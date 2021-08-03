@@ -1790,28 +1790,6 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
 
 
-<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
-
-<div class="pjax-animate">
-  
-    <div class="loading-circle"><div id="loader-circle"></div></div>
-    <script>
-      window.ShowLoading = function() {
-        $(".loading-circle").css("display", "block");
-      };
-      window.HideLoading = function() {
-        $(".loading-circle").css("display", "none");
-      }
-    </script>
-  
-	<script>
-		volantis.pjax.push(window.HideLoading,'HideLoading');
-		volantis.pjax.send(window.ShowLoading,'ShowLoading');
-		volantis.pjax.error(window.HideLoading,'HideLoading');
-	</script>
-</div>
-
-
 <script>
     var pjax;
     document.addEventListener('DOMContentLoaded', function () {
@@ -1834,7 +1812,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
       try {
         var currentUrl = window.location.pathname;
         var targetUrl = e.triggerElement.href;
-        var banUrl = ["/"];
+        var banUrl = [""];
         if (banUrl[0] != "") {
           banUrl.forEach(item => {
             if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
