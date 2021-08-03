@@ -4,6 +4,7 @@
   <meta charset="utf-8">
 
 
+
   <!-- SEO相关 -->
   
     
@@ -21,7 +22,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/Giresharu/Giresharu.github.io@latest/css/first.css" as="style">
+  <link rel="preload" href="/css/first.css" as="style">
   
 
   <!-- 页面元数据 -->
@@ -47,13 +48,13 @@
 
   
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Giresharu/Giresharu.github.io@latest/css/first.css">
+<link rel="stylesheet" href="/css/first.css">
 
   
 
   
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Giresharu/Giresharu.github.io@latest/css/style.css" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Giresharu/Giresharu.github.io@latest/css/style.css"></noscript>
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
   
 
   <script id="loadcss"></script>
@@ -106,6 +107,55 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </head>
 
   <body>
+
+	<!-- 监听ctrl+c并弹窗 -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+	<script type="text/javascript">
+ 
+		//  监听 ctrl + c事件
+		$(document).unbind('keydown').bind('keydown', function(e){
+		    if(e.ctrlKey && e.keyCode  == 67) { 
+          		console.log(window.getSelection().toString())
+				  if (!window.getSelection().toString()){
+					CopyError();
+				  	
+            		return false;
+			  	} 
+				  CopySuccess();		
+		        // 返回false, 防止重复触发copy事件
+		      return false;
+		    }
+		})
+ 
+		function CopySuccess(){
+			setTime();
+      			$.message({
+                title: '复制成功',
+                message: "亲爱的同志，希望这段文本能为您和全人类的共产主义事业做出一些微小的贡献。让我们一起奋斗终生！",
+				        time: "6000",
+                type: 'success',
+      });
+		}
+    function CopyError(){
+			setTime();
+      			$.message({
+                title: '复制失败',
+                message: "亲爱的同志，您好像什么都没有选中！再好好试一次吧！",
+				time: "6000",
+                type: 'error',
+      });
+    }
+ 
+		function setTime(){
+			if(window.localStorage) {
+				let time = localStorage.getItem('time');
+				time ? time ++ : time = 1;
+				localStorage.setItem('time', time);
+			}
+		}
+ 
+	</script>
+
     
 
 <header id="l_header" class="l_header auto shadow floatable blur " style='opacity: 0' >
@@ -1137,8 +1187,14 @@ var loadCSS = function( href, before, media, attributes ){
         // 选中文本
         if (window.getSelection().toString()) {
           if ('true' == 'true') {
+            let str_luosw = window.getSelection().toString();
             copyText.style.display = 'block';
             hrText.style.display = 'block';
+            copyText.addEventListener("click", function (e) {
+              copyString(str_luosw);
+            }, {
+              once: true
+            });
           }
         }
       }
@@ -1184,6 +1240,12 @@ var loadCSS = function( href, before, media, attributes ){
       input.select();
       document.execCommand('copy');
       document.body.removeChild(input);
+      $.message({
+                title: '复制成功',
+                message: "亲爱的同志，希望这段文本能为您和全人类的共产主义事业做出一些微小的贡献。让我们一起奋斗终生！",
+                time: "6000",
+                type: 'success',
+      });
     }
     document.execCommand('click');
   </script>
@@ -1195,7 +1257,7 @@ var loadCSS = function( href, before, media, attributes ){
   function loadIssuesJS() {
     if ($(".md").find(".issues-api").length == 0) return;
 	
-	  loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.3.1/source/js/issues.min.js');
+	  loadScript('/js/issues.js');
 	
   };
   $(function () {
@@ -1277,7 +1339,8 @@ var loadCSS = function( href, before, media, attributes ){
         clipboard.off('success').on('success', function (e) {
             $.message({
                 title: '复制成功',
-                message: "代码已复制，请遵守相关授权协议。",
+                message: "亲爱的同志，希望这段代码能为您和全人类的共产主义事业做出一些微小的贡献。让我们一起奋斗终生！",
+                time: "6000",
                 type: 'success',
             });
             let $btn = $(e.trigger);
@@ -1294,6 +1357,13 @@ var loadCSS = function( href, before, media, attributes ){
             }, 2000)
         });
         clipboard.off('error').on('error', function (e) {
+            $.message({
+                title: '复制失败',
+                message: "亲爱的同志，我也不知道发生了什么。如果您遇到这种情况请一定在评论里告知我，我将对它进行调查和修复！",
+                autoClose: false,
+                time: "15000",
+                type: 'error',
+            });
             e.clearSelection();
             let $btn = $(e.trigger);
             $btn.addClass('copy-failed');
@@ -1327,7 +1397,7 @@ var loadCSS = function( href, before, media, attributes ){
 
 
   
-<script src="https://cdn.jsdelivr.net/gh/Giresharu/Giresharu.github.io@latest/js/app.js"></script>
+<script src="/js/app.js"></script>
 
 
 
@@ -1339,7 +1409,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
 
 $('.input.u-search-input').one('focus',function(){
 	
-		loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.3.1/source/js/search/hexo.min.js',setSearchService);
+		loadScript('/js/search/hexo.js',setSearchService);
 	
 })
 
@@ -1676,6 +1746,28 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
 
 
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+	<script>
+		volantis.pjax.push(window.HideLoading,'HideLoading');
+		volantis.pjax.send(window.ShowLoading,'ShowLoading');
+		volantis.pjax.error(window.HideLoading,'HideLoading');
+	</script>
+</div>
+
+
 <script>
     var pjax;
     document.addEventListener('DOMContentLoaded', function () {
@@ -1698,7 +1790,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
       try {
         var currentUrl = window.location.pathname;
         var targetUrl = e.triggerElement.href;
-        var banUrl = [""];
+        var banUrl = ["/"];
         if (banUrl[0] != "") {
           banUrl.forEach(item => {
             if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
