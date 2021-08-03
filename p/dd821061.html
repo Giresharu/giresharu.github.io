@@ -3,8 +3,6 @@
   <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1'>
   <meta charset="utf-8">
 
-  <link rel="stylesheet" href="\css\iziToast.min.css">
-  <script src="\js\iziToast.min.js" type="text/javascript"></script>
 
   <!-- SEO相关 -->
   
@@ -21,7 +19,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <link rel="preload" href="/css/first.css" as="style">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/Giresharu/Giresharu.github.io@master/css/first.css" as="style">
   
 
   <!-- 页面元数据 -->
@@ -51,13 +49,13 @@
 
   
     
-<link rel="stylesheet" href="/css/first.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Giresharu/Giresharu.github.io@master/css/first.css">
 
   
 
   
-  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Giresharu/Giresharu.github.io@master/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Giresharu/Giresharu.github.io@master/css/style.css"></noscript>
   
 
   <script id="loadcss"></script>
@@ -640,57 +638,57 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <p>&emsp;&emsp;以前在Unity使用过很多次Corountine协程来做一些持续动作，如在其他代码也在正常运行的情况下让某些物体持续运动，但从未求甚解。如今转到Godot，协程的写法产生了一些变化，乘此学习的机会，也把协程本来的功能也研究了一番。</p>
 <span id="more"></span>
 <h2 id="初级范例"><a href="#初级范例" class="headerlink" title="初级范例"></a>初级范例</h2><h3 id="·-yield与resume"><a href="#·-yield与resume" class="headerlink" title="· yield与resume"></a>· yield与resume</h3><p>&emsp;&emsp;首先Godot不需要特地声明类似IEnumeable的接口，就可以让一个函数成为协程函数。<br>调用一个协程函数时，也不需要类似StarCoroutine的方法来开始协程。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">func Execute():</span><br><span class="line">    print(&quot;我先走完这第一步，其他的下次再说&quot;)</span><br><span class="line">    yield()</span><br><span class="line">    print(&quot;好了我回来了，继续运行&quot;)</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">    var exe = Execute()</span><br><span class="line">    print(&quot;先暂停一下哈&quot;)</span><br><span class="line">    exe.resume()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight gdscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Execute</span>():</span></span><br><span class="line">    print(<span class="string">&quot;我先走完这第一步，其他的下次再说&quot;</span>)</span><br><span class="line">    <span class="keyword">yield</span>()</span><br><span class="line">    print(<span class="string">&quot;好了我回来了，继续运行&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">_ready</span>():</span></span><br><span class="line">    <span class="keyword">var</span> exe = Execute()</span><br><span class="line">    print(<span class="string">&quot;先暂停一下哈&quot;</span>)</span><br><span class="line">    exe.resume()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;输出结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">我先走完这第一步，其他的下次再说</span><br><span class="line">先暂停一下哈</span><br><span class="line">好了我回来了，继续运行</span><br></pre></td></tr></table></figure>
+<figure class="highlight gdscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">我先走完这第一步，其他的下次再说</span><br><span class="line">先暂停一下哈</span><br><span class="line">好了我回来了，继续运行</span><br></pre></td></tr></table></figure>
 
 
 <p>我们逐步分析一下发生了什么：</p>
 <p>&emsp;&emsp;① exe的赋值语句调用了Execute函数，首先执行第一步print。<br>&emsp;&emsp;② Execute函数运行到第二行，遇到了yield，于是将目前的函数暂停，并返回一个GDScriptFunctionStat类型的对象给变量exe。这个对象包含了Execute这次运行的状态，并且拥有一个很重要的函数：resume,可以在这句函数后立即继续此对象对应函数的运行，直到下一个yield或运行结束。<br>&emsp;&emsp;③ 经过_ready函数的print后，调用了exe.resume，重新运行中断的Execute函数，执行最后一步print。</p>
 <h3 id="·-多次yield的情况"><a href="#·-多次yield的情况" class="headerlink" title="· 多次yield的情况"></a>· 多次yield的情况</h3><div class="note "><p>需要注意的是，resume过的GDScriptFunctionStat也会被释放，其实exe无法继续引用GDScriptFunctionStat。所以如果有多个要多次resume，则每次resume都应该赋值给exe。</p></div>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#多次yield的写法，exe要对新的GDScriptFunctionStat进行接力</span><br><span class="line"></span><br><span class="line">func Execute():</span><br><span class="line">    print(&quot;我先走完这第一步，其他的下次再说&quot;)</span><br><span class="line">    yield()</span><br><span class="line">    print(&quot;好了我回来了，继续运行&quot;)</span><br><span class="line">    yield()</span><br><span class="line">    print(&quot;exe要是没有接力，是到不了我这儿的哦&quot;)</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">    var exe = Execute()</span><br><span class="line">    print(&quot;先暂停一下哈&quot;)</span><br><span class="line">    exe = exe.resume()</span><br><span class="line">    exe.resume() #这个时候的exe已经是从第二个yield回来的了</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight gdscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#多次yield的写法，exe要对新的GDScriptFunctionStat进行接力</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Execute</span>():</span></span><br><span class="line">    print(<span class="string">&quot;我先走完这第一步，其他的下次再说&quot;</span>)</span><br><span class="line">    <span class="keyword">yield</span>()</span><br><span class="line">    print(<span class="string">&quot;好了我回来了，继续运行&quot;</span>)</span><br><span class="line">    <span class="keyword">yield</span>()</span><br><span class="line">    print(<span class="string">&quot;exe要是没有接力，是到不了我这儿的哦&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">_ready</span>():</span></span><br><span class="line">    <span class="keyword">var</span> exe = Execute()</span><br><span class="line">    print(<span class="string">&quot;先暂停一下哈&quot;</span>)</span><br><span class="line">    exe = exe.resume()</span><br><span class="line">    exe.resume() <span class="comment">#这个时候的exe已经是从第二个yield回来的了</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;输出结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我先走完这第一步，其他的下次再说</span><br><span class="line">先暂停一下哈</span><br><span class="line">好了我回来了，继续运行</span><br><span class="line">exe要是没有接力，是到不了我这儿的哦</span><br></pre></td></tr></table></figure>
+<figure class="highlight gdscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我先走完这第一步，其他的下次再说</span><br><span class="line">先暂停一下哈</span><br><span class="line">好了我回来了，继续运行</span><br><span class="line">exe要是没有接力，是到不了我这儿的哦</span><br></pre></td></tr></table></figure>
 
 
 <h2 id="配合信号使用"><a href="#配合信号使用" class="headerlink" title="配合信号使用"></a>配合信号使用</h2><p>&emsp;&emsp;配合信号系统，Godot能够轻松地在各种情况下不使用resume也能恢复协程函数的运行。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yield(node, signal)</span><br></pre></td></tr></table></figure>
+<figure class="highlight gdscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">yield</span>(node, <span class="keyword">signal</span>)</span><br></pre></td></tr></table></figure>
 <p>这代表着这个协程被绑定成了node的signal信号的接收者，当node发出signal信号时，这个协程会恢复运行，等同于通过信号触发resume。</p>
 <h3 id="·-每帧信号"><a href="#·-每帧信号" class="headerlink" title="· 每帧信号"></a>· 每帧信号</h3><p>&emsp;&emsp;当一个我们需要一个协程函数每帧被resume一次的时候，可以使用内置信号”idle_frame”。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#&quot;idle_frame&quot;是SenceTree每帧都会发射一次的信号。</span><br><span class="line">yield(get_tree(), &quot;idle_frame&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight gdscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#&quot;idle_frame&quot;是SenceTree每帧都会发射一次的信号。</span></span><br><span class="line"><span class="keyword">yield</span>(get_tree(), <span class="string">&quot;idle_frame&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 
 <h3 id="·-Ready信号"><a href="#·-Ready信号" class="headerlink" title="· Ready信号"></a>· Ready信号</h3><p>&emsp;&emsp;当一个我们需要一个协程函数在某个节点运行完_ready()时触发，可以使用”ready”信号。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#当节点node运行完_ready()函数时，将会发射&quot;ready&quot;信号。</span><br><span class="line">yield(node, &quot;ready&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight gdscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#当节点node运行完_ready()函数时，将会发射&quot;ready&quot;信号。</span></span><br><span class="line"><span class="keyword">yield</span>(node, <span class="string">&quot;ready&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 
-<h3 id="·-函数结束信号"><a href="#·-函数结束信号" class="headerlink" title="· 函数结束信号"></a>· 函数结束信号</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#当函数somefunc()运行结束时，会发射&quot;completed&quot;信号。</span><br><span class="line">yield(somefunc(), &quot;completed&quot;)</span><br></pre></td></tr></table></figure>
+<h3 id="·-函数结束信号"><a href="#·-函数结束信号" class="headerlink" title="· 函数结束信号"></a>· 函数结束信号</h3><figure class="highlight gdscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#当函数somefunc()运行结束时，会发射&quot;completed&quot;信号。</span></span><br><span class="line"><span class="keyword">yield</span>(somefunc(), <span class="string">&quot;completed&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 
 <h3 id="·-节点信号"><a href="#·-节点信号" class="headerlink" title="· 节点信号"></a>· 节点信号</h3><p>&emsp;&emsp;我们当然也可以使用自己设置的信号来触发协程。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#当node发出了&quot;gogogo&quot;信号时，从这个yield暂停出去的函数会恢复运行，等同于resume了一次</span><br><span class="line">yield(node, &quot;gogogo&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight gdscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#当node发出了&quot;gogogo&quot;信号时，从这个yield暂停出去的函数会恢复运行，等同于resume了一次</span></span><br><span class="line"><span class="keyword">yield</span>(node, <span class="string">&quot;gogogo&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 <h3 id="·-延时-计时器信号"><a href="#·-延时-计时器信号" class="headerlink" title="· 延时/计时器信号"></a>· 延时/计时器信号</h3><p>&emsp;&emsp;与Unity的WaitForSeconds不同，Godot的延时协程需要创建一个计时器实例来实现。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#使用SenceTree的create_timer函数创建一个计时器实例，计时器在倒计时结束后会发射&quot;timeout&quot;信号。</span><br><span class="line">yield(get_tree().create_timer(1.0), &quot;timeout&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight gdscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用SenceTree的create_timer函数创建一个计时器实例，计时器在倒计时结束后会发射&quot;timeout&quot;信号。</span></span><br><span class="line"><span class="keyword">yield</span>(get_tree().create_timer(<span class="number">1.0</span>), <span class="string">&quot;timeout&quot;</span>)</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;其他的内置信号可以在Godot内按下F1，在各类型的文档内查看。</p>
 <h2 id="协程循环的应用"><a href="#协程循环的应用" class="headerlink" title="协程循环的应用"></a>协程循环的应用</h2><p>&emsp;&emsp;有了以上的信号，我们就能够做出一个可以循环的简单协程了。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">extends Node2D</span><br><span class="line"></span><br><span class="line">func loop_until_zero():</span><br><span class="line">  var n = 100</span><br><span class="line">  while(n&gt;0):</span><br><span class="line">    n -= 1</span><br><span class="line">    position += Vector2(-1.0, 0.0)</span><br><span class="line">    yield(get_tree(), &quot;idle_frame&quot;)</span><br><span class="line">    #直到n减到0为止，让这个节点每帧向左移动-1像素</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">  loop_until_zero() #因为不需要resume，所以我们不需要把中断的状态赋值给某个变量</span><br></pre></td></tr></table></figure>
+<figure class="highlight gdscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extends</span> Node2D</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">loop_until_zero</span>():</span></span><br><span class="line">  <span class="keyword">var</span> n = <span class="number">100</span></span><br><span class="line">  <span class="keyword">while</span>(n&gt;<span class="number">0</span>):</span><br><span class="line">    n -= <span class="number">1</span></span><br><span class="line">    position += <span class="built_in">Vector2</span>(-<span class="number">1.0</span>, <span class="number">0.0</span>)</span><br><span class="line">    <span class="keyword">yield</span>(get_tree(), <span class="string">&quot;idle_frame&quot;</span>)</span><br><span class="line">    <span class="comment">#直到n减到0为止，让这个节点每帧向左移动-1像素</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">_ready</span>():</span></span><br><span class="line">  loop_until_zero() <span class="comment">#因为不需要resume，所以我们不需要把中断的状态赋值给某个变量</span></span><br></pre></td></tr></table></figure>
 
 <div class="note "><p>loop_until_zero() 不仅可以写在节点自身的ready里，也可以在其他节点通过信号或其他方式调用。这样发送方就无需关心接收方是否在运动，接收方也无需时时刻刻受发送方监督。</p></div>
 
 
 <h2 id="高级技巧"><a href="#高级技巧" class="headerlink" title="高级技巧"></a>高级技巧</h2><h3 id="·-使用Yield传递变量的值"><a href="#·-使用Yield传递变量的值" class="headerlink" title="· 使用Yield传递变量的值"></a>· 使用Yield传递变量的值</h3><h4 id="1-通过resume-value"><a href="#1-通过resume-value" class="headerlink" title="1 通过resume(value)"></a>1 通过resume(value)</h4><p>&emsp;&emsp;协程函数被Yield中断后，可以使用resume(value)来传递参数，作为Yield的返回值，传递给协程函数中使用。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">func Execute():</span><br><span class="line">  var n = yield()</span><br><span class="line">  print(n)</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">  var exe = Execute()</span><br><span class="line">  exe.resume(100) </span><br></pre></td></tr></table></figure>
+<figure class="highlight gdscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Execute</span>():</span></span><br><span class="line">  <span class="keyword">var</span> n = <span class="keyword">yield</span>()</span><br><span class="line">  print(n)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">_ready</span>():</span></span><br><span class="line">  <span class="keyword">var</span> exe = Execute()</span><br><span class="line">  exe.resume(<span class="number">100</span>) </span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;输出结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">100</span><br></pre></td></tr></table></figure>
+<figure class="highlight gdscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">100</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="2-通过发射信号函数emit-signal-node-signal-value"><a href="#2-通过发射信号函数emit-signal-node-signal-value" class="headerlink" title="2 通过发射信号函数emit_signal(node, signal, value)"></a>2 通过发射信号函数emit_signal(node, signal, value)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">signal Continue</span><br><span class="line"></span><br><span class="line">func Execute():</span><br><span class="line">  var n = yield(self, &quot;Continue&quot;)</span><br><span class="line">  print(n)</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">  var exe = Execute()</span><br><span class="line">  emit_signal(self, &quot;Continue&quot;, 100)</span><br></pre></td></tr></table></figure>
+<h4 id="2-通过发射信号函数emit-signal-node-signal-value"><a href="#2-通过发射信号函数emit-signal-node-signal-value" class="headerlink" title="2 通过发射信号函数emit_signal(node, signal, value)"></a>2 通过发射信号函数emit_signal(node, signal, value)</h4><figure class="highlight gdscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">signal</span> Continue</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Execute</span>():</span></span><br><span class="line">  <span class="keyword">var</span> n = <span class="keyword">yield</span>(<span class="keyword">self</span>, <span class="string">&quot;Continue&quot;</span>)</span><br><span class="line">  print(n)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">_ready</span>():</span></span><br><span class="line">  <span class="keyword">var</span> exe = Execute()</span><br><span class="line">  emit_signal(<span class="keyword">self</span>, <span class="string">&quot;Continue&quot;</span>, <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
 <p>输出结果同上</p>
 <h3 id="·-延迟子节点的ready函数"><a href="#·-延迟子节点的ready函数" class="headerlink" title="· 延迟子节点的ready函数"></a>· 延迟子节点的ready函数</h3><p>&emsp;&emsp;Godot Node类的_ready()函数是后序遍历的，也就是先运行子节点，再运行父节点。但是在某些特殊情况，我们可能希望子节点的_ready()函数在父节点之后运行，这是我们可以通过协程来达成这个效果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#父节点</span><br><span class="line">class_name ParentNode</span><br><span class="line">extends Node</span><br><span class="line">var a</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">  a = 100</span><br><span class="line"></span><br><span class="line">#子节点</span><br><span class="line">class_name SonNode</span><br><span class="line">extends Node</span><br><span class="line">var b</span><br><span class="line"></span><br><span class="line">func WaitParentReady():</span><br><span class="line">  yield(get_parent(), &quot;ready&quot;)</span><br><span class="line">  b = a</span><br><span class="line">  print(b)</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">  WaitParentReady()</span><br></pre></td></tr></table></figure>
+<figure class="highlight gdscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#父节点</span></span><br><span class="line"><span class="keyword">class_name</span> ParentNode</span><br><span class="line"><span class="keyword">extends</span> Node</span><br><span class="line"><span class="keyword">var</span> a</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">_ready</span>():</span></span><br><span class="line">  a = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#子节点</span></span><br><span class="line"><span class="keyword">class_name</span> SonNode</span><br><span class="line"><span class="keyword">extends</span> Node</span><br><span class="line"><span class="keyword">var</span> b</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">WaitParentReady</span>():</span></span><br><span class="line">  <span class="keyword">yield</span>(get_parent(), <span class="string">&quot;ready&quot;</span>)</span><br><span class="line">  b = a</span><br><span class="line">  print(b)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">_ready</span>():</span></span><br><span class="line">  WaitParentReady()</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;输出结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">100</span><br></pre></td></tr></table></figure>
+<figure class="highlight gdscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">100</span></span><br></pre></td></tr></table></figure>
   
   
     
@@ -724,7 +722,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-03T01:57:22+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-03T17:19:42+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年8月3日</p>
@@ -918,30 +916,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <footer class="footer clearfix">
     <br><br>
-    
-      
-        <div class="aplayer-container">
-          
-
-  
-    <meting-js
-      theme='#C85951'
-      autoplay='true'
-      volume='0.2'
-      loop='all'
-      order='random'
-      fixed='true'
-      list-max-height='320px'
-      server='netease'
-      type='playlist'
-      id='6896008342'
-      list-folded='true'>
-    </meting-js>
-  
-
-
-        </div>
-      
     
       
         <div class='copyright'>
@@ -1223,28 +1197,6 @@ var loadCSS = function( href, before, media, attributes ){
   
         
       
-        
-          <li class='music name'>
-            <p class='nav music-title fix-cursor-default'></p>
-          </li>
-          <li class='music ctrl'>
-            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fa fa-step-backward fa-fw'></i></a>
-            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fa fa-play fa-fw'></i></a>
-            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fa fa-step-forward fa-fw'></i></a>
-          </li>
-          <li class='music volume'>
-            <a class='nav volume'>
-              <div class="aplayer-volume-bar-wrap">
-                <div class="aplayer-volume-bar fix-cursor-pointer">
-                  <div class="aplayer-volume"></div>
-                  <i class='left fa fa-volume-off fa-fw'></i>
-                  <i class='right fa fa-volume-up fa-fw'></i>
-                </div>
-              </div>
-            </a>
-          </li>
-        
-      
     </ul>
   </div>
 
@@ -1348,11 +1300,6 @@ var loadCSS = function( href, before, media, attributes ){
       }
       // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
       
-      if(volantis.APlayerLoaded){ // APlayer加载完成？
-        // 如果有aplayer，初始化一下
-        checkAPlayer();
-      }
-      
       return false; // 该行代码确保系统自带的右键菜单不会被调出
     }
     function hideMenu() {
@@ -1377,7 +1324,7 @@ var loadCSS = function( href, before, media, attributes ){
   function loadIssuesJS() {
     if ($(".md").find(".issues-api").length == 0) return;
 	
-	  loadScript('/js/issues.js');
+	  loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.3.1/source/js/issues.min.js');
 	
   };
   $(function () {
@@ -1457,9 +1404,10 @@ var loadCSS = function( href, before, media, attributes ){
         $(".highlight .code pre").before(copyHtml);
         $(".article pre code").before(copyHtml);
         clipboard.off('success').on('success', function (e) {
-            iziToast.show({
+            $.message({
                 title: '复制成功',
-                message: '同志，希望这段代码能为你做出一点微小的贡献'
+                message: "代码已复制，请遵守相关授权协议。",
+                type: 'success',
             });
             let $btn = $(e.trigger);
             $btn.addClass('copied');
@@ -1501,32 +1449,6 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
-  <script>
-  let APlayerController = new Object();
-  APlayerController.id = '6896008342';  // 设定全局音乐播放ID
-  APlayerController.volume = '0.2';
-  loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
-  // APlayer 需要在  MetingJS 之前加载
-  loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
-  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
-  var checkAPlayer = setInterval(function () {
-    if (!window.APlayer) return // APlayer加载完成？
-	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
-    clearInterval(checkAPlayer)
-	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
-      window.volantis.APlayerLoaded=1 // APlayer加载完成
-      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
-	  }
-  }, 2500) // 按照网速调节差分2.5s
-  // rightmenu see: layout/_partial/rightmenu.ejs
-
-  
-    loadScript("/js/aplayer.js")
-  
-
-</script>
-
-
 
 
 
@@ -1534,7 +1456,7 @@ var loadCSS = function( href, before, media, attributes ){
 
 
   
-<script src="/js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Giresharu/Giresharu.github.io@master/js/app.js"></script>
 
 
 
@@ -1546,7 +1468,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
 
 $('.input.u-search-input').one('focus',function(){
 	
-		loadScript('/js/search/hexo.js',setSearchService);
+		loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.3.1/source/js/search/hexo.min.js',setSearchService);
 	
 })
 
