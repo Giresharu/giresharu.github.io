@@ -4936,6 +4936,10 @@ div.note.light,
 div.note.clear {
   border-left-color: rgba(165,159,165,0.388);
 }
+b,
+strong {
+  font-size: 2em;
+}
 .animated {
   -webkit-animation-duration: 0.4s;
   animation-duration: 0.4s;
