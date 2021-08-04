@@ -72,8 +72,8 @@ html {
   font-size: 16px;
 }
 html >::-webkit-scrollbar {
-  height: 4px;
-  width: 4px;
+  height: 8px;
+  width: 8px;
 }
 html >::-webkit-scrollbar-track-piece {
   background: transparent;
@@ -81,7 +81,7 @@ html >::-webkit-scrollbar-track-piece {
 html >::-webkit-scrollbar-thumb {
   background: #c85951;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 8px;
 }
 html >::-webkit-scrollbar-thumb:hover {
   background: #ff5722;
@@ -113,19 +113,19 @@ body.modal-active {
   background: rgba(33,150,243,0.2);
 }
 h1 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 h3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 h4 {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
 }
 h5 {
-  font-size: 1rem;
+  font-size: 1.125rem;
 }
 h6 {
   font-size: 1rem;
@@ -138,7 +138,7 @@ h6 {
   font-weight: normal;
 }
 a {
-  color: #2196f3;
+  color: #83abff;
   cursor: pointer;
   text-decoration: none;
   transition: all 0.28s ease;
@@ -937,7 +937,7 @@ th {
   flex-shrink: 0;
   line-height: 64px;
   padding: 0 24px;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-family: "草檀斋毛泽东字体", "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
 }
 .l_header #wrapper .nav-main .title img {
@@ -1713,7 +1713,7 @@ ul.list-v >li>a:hover {
   white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
 }
 #u-search .modal-body .modal-results .result .digest {
   display: block;

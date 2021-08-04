@@ -154,7 +154,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
     
 
-<header id="l_header" class="l_header auto shadow floatable blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow floatable blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -573,7 +573,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper docs search' style="display: ;">
+        <div id="full" class='cover-wrapper docs search' style="display: none;">
           
             <div id='cover-backstretch'></div>
           
@@ -809,7 +809,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <li><a class="flat-box"
             title="/categories/Hexo%E5%8D%9A%E5%AE%A2/" href="/categories/Hexo%E5%8D%9A%E5%AE%A2/"
             id="categoriesHexoE58D9AE5AEA2"
-            ><div class='name'>Hexo博客</div><div class='badge'>(2)</div></a></li>
+            ><div class='name'>Hexo博客</div><div class='badge'>(1)</div></a></li>
         
       </ul>
     </div>
@@ -833,7 +833,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-      <a href="/tags/GdScript/" style="font-size: 14px; color: #999">GdScript</a> <a href="/tags/Godot/" style="font-size: 14px; color: #999">Godot</a> <a href="/tags/Hexo/" style="font-size: 24px; color: #555">Hexo</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Volantis/" style="font-size: 24px; color: #555">Volantis</a>
+      <a href="/tags/GdScript/" style="font-size: 14px; color: #999">GdScript</a> <a href="/tags/Godot/" style="font-size: 14px; color: #999">Godot</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Volantis/" style="font-size: 14px; color: #999">Volantis</a>
     </div>
   </section>
 
@@ -858,14 +858,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>

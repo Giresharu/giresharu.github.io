@@ -68,8 +68,8 @@
 .md span.btn a,
 .article span.btn.regular a,
 .md span.btn.regular a {
-  color: #44d7b6;
-  border: 1px solid #44d7b6;
+  color: #83abff;
+  border: 1px solid #83abff;
 }
 .article span.btn a:hover,
 .md span.btn a:hover,
@@ -93,7 +93,7 @@
 .article span.btn.solid a,
 .md span.btn.solid a {
   border: none;
-  background: #44d7b6;
+  background: #83abff;
   color: #fff;
 }
 .article span.btn.solid a:hover,
@@ -587,7 +587,7 @@ div.dropmenu {
   -moz-transition: all 0.28s ease;
   -webkit-transition: all 0.28s ease;
   -o-transition: all 0.28s ease;
-  color: #2196f3;
+  color: #83abff;
 }
 div.dropmenu:hover {
   color: inherit;
@@ -1377,32 +1377,32 @@ p.p.h2 {
 }
 span.p.h1,
 p.p.h1 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: var(--color-h1);
   padding-top: 2em;
 }
 span.p.h2,
 p.p.h2 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: var(--color-h2);
   padding-top: 2em;
   border-bottom: 1px solid rgba(238,238,238,0.1);
 }
 span.p.h3,
 p.p.h3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: var(--color-h3);
   padding-top: 2em;
 }
 span.p.h4,
 p.p.h4 {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   color: var(--color-h4);
   padding-top: 2em;
 }
 span.p.h5,
 p.p.h5 {
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: var(--color-h5);
   padding-top: 1.5em;
 }
@@ -2222,7 +2222,7 @@ article#comments #valine_container .vcount {
 }
 article#comments #valine_container .vcount .vnum {
   color: var(--color-p);
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 article#comments #valine_container button {
   border: none;
@@ -2330,7 +2330,7 @@ article#comments #valine_container .vcards .vcontent pre code {
   border: none;
 }
 article#comments #valine_container .vcards .vcontent a {
-  color: #2196f3;
+  color: #83abff;
   line-height: inherit;
   transition: all 0.28s ease;
   -moz-transition: all 0.28s ease;
@@ -3002,7 +3002,7 @@ article#tag .all-tags ul li span:before {
 }
 .article .widget.list .content a,
 .article .widget.related_posts .content a {
-  color: #2196f3;
+  color: #83abff;
 }
 .article .widget.list .content a:hover,
 .article .widget.related_posts .content a:hover {
@@ -3025,7 +3025,7 @@ article#tag .all-tags ul li span:before {
   border-left: none;
   padding: 0;
   padding-left: 4px;
-  color: #2196f3;
+  color: #83abff;
   font-weight: normal;
   text-decoration: none;
 }
@@ -3040,7 +3040,7 @@ article#tag .all-tags ul li span:before {
 }
 .article .widget .content .list a .name {
   display: inline;
-  color: #2196f3;
+  color: #83abff;
 }
 .article .widget .content .list a:hover .name {
   color: #ff5722;
@@ -3518,7 +3518,7 @@ footer.footer .copyright p {
   border-radius: 8px;
 }
 .l_main .post h1.title {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin: 0;
   border-bottom: none;
   padding-bottom: 4px;
@@ -3756,7 +3756,7 @@ footer.footer .copyright p {
 article#comments p[ct] {
   margin-top: 0;
   margin-bottom: 1em;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   color: var(--color-text);
   font-weight: 600;
 }
@@ -3783,7 +3783,7 @@ article#comments #loading-comments a.load-comments {
   display: inline-block;
   border-radius: 2px;
   cursor: pointer;
-  background: #44d7b6;
+  background: #83abff;
   color: #fff;
   padding-left: 48px;
   padding-right: 48px;
@@ -4016,7 +4016,7 @@ canvas {
 }
 .l_main .article .prev-next >a p.title {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.125rem;
 }
 .l_main .article .prev-next >a p.title >i {
   width: 1rem;
@@ -4441,7 +4441,7 @@ canvas {
   word-break: break-all;
 }
 .widget.text .content a {
-  color: #2196f3;
+  color: #83abff;
   transition: all 0.28s ease;
   -moz-transition: all 0.28s ease;
   -webkit-transition: all 0.28s ease;
@@ -4635,7 +4635,7 @@ canvas {
   color: #fff;
 }
 .snackbar-content .title {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 600;
 }
 .snackbar-content .action {
@@ -4939,6 +4939,78 @@ div.note.clear {
 b,
 strong {
   font-size: 2em;
+}
+.md h4:before {
+  margin-top: -100px;
+}
+.md h3:before {
+  margin-top: -90px !important;
+}
+.article h4,
+.article h5,
+.article h6 {
+  margin-left: 18px;
+}
+.md h1,
+.md h2,
+.md h3,
+.md h4,
+.md h5,
+.md h6 {
+  font-weight: bold;
+}
+.md .footer .references,
+.md .footer .related_posts {
+  background: none;
+}
+.article blockquote {
+  background: rgba(51,30,30,0.651);
+  box-shadow: 0 2px 12px 0px rgba(0,0,0,0.502);
+}
+.l_main .article .prev-next >a {
+  background: rgba(58,58,58,0);
+  box-shadow: 0 2px 12px 0px rgba(0,0,0,0.502);
+}
+.fa-hashtag:before {
+  content: "\f02b" !important;
+}
+input.input.u-search-input,
+input.vnick.vinput,
+input.vmail.vinput,
+.v[data-class=v] .veditor {
+  cursor: url("https://cdn.jsdelivr.net/gh/Giresharu/Giresharu.github.io@1.0.1/cusor/arr-text.cur"), text !important;
+}
+.fancybox-can-pan .fancybox-content,
+.fancybox-can-swipe .fancybox-content,
+.fancybox-container .fancybox-stage,
+.fancybox-slide.fancybox-slide--current.fancybox-slide--image.fancybox-slide--complete {
+  cursor: url("https://cdn.jsdelivr.net/gh/Giresharu/Giresharu.github.io@latest/cusor/arr-zoom-out.cur"), text !important;
+}
+.fancybox-caption__body {
+  cursor: url("https://cdn.jsdelivr.net/gh/Giresharu/Giresharu.github.io@latest/cusor/arr-pointer.cur"), text !important;
+}
+span.p.h2,
+p.p.h2 {
+  padding-top: 0em !important;
+  font-weight: bold !important;
+}
+.article span.btn.solid a,
+.md span.btn.solid a {
+  color: #000 !important;
+}
+.article div.btns a,
+.md div.btns a {
+  background: none !important;
+}
+.article div.btns a>img:first-child,
+.md div.btns a>img:first-child,
+.article div.btns a>i:first-child,
+.md div.btns a>i:first-child {
+  box-shadow: 0 2px 10px 0px rgba(0,0,0,0) !important;
+  border: none !important;
+}
+::marker {
+  color: #fff;
 }
 .animated {
   -webkit-animation-duration: 0.4s;
