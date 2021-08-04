@@ -5012,6 +5012,9 @@ p.p.h2 {
 ::marker {
   color: #fff;
 }
+.headimg-div .headimg-a {
+  height: 140px !important;
+}
 .animated {
   -webkit-animation-duration: 0.4s;
   animation-duration: 0.4s;
