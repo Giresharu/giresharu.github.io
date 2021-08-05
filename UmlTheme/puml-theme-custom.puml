@@ -169,10 +169,11 @@ skinparam actor {
 !startsub arrow
 
 skinparam arrow {
-	Thickness 3
-	Color $PRIMARY
+	Thickness 1
+	Color $SECONDARY_LIGHT
 	FontColor $FGCOLOR
 }
+
 !endsub
 
 !startsub sequence
