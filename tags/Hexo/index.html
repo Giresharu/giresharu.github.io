@@ -336,13 +336,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                <a class="menuitem flat-box faa-parent animated-hover" href=/artitalk/
                   
                   
                   
-                    id="about"
+                    id="artitalk"
                   >
-                  <i class='fas fa-info-circle fa-fw'></i>关于
+                  <i class='fas fa-comment fa-fw'></i>随便BB
                 </a>
                 
               </li>
@@ -534,13 +534,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                <a class="menuitem flat-box faa-parent animated-hover" href=/artitalk/
                   
                   
                   
-                    id="about"
+                    id="artitalk"
                   >
-                  <i class='fas fa-info-circle fa-fw'></i>关于
+                  <i class='fas fa-comment fa-fw'></i>随便BB
                 </a>
                 
               </li>
@@ -621,11 +621,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               <i class='fas fa-archive fa-fw'></i><p>时间线</p>
             </a>
           
-            <a href="/about/"
+            <a href="/artitalk/"
               
               
-              id="about">
-              <i class='fas fa-info-circle fa-fw'></i><p>关于</p>
+              id="artitalk">
+              <i class='fas fa-comment fa-fw'></i><p>随便BB</p>
             </a>
           
             <a target="_blank" rel="noopener" href="https://www.marxists.org/chinese/index.html"
@@ -819,7 +819,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <li><a class="flat-box"
             title="/categories/Godot%E5%BC%95%E6%93%8E/" href="/categories/Godot%E5%BC%95%E6%93%8E/"
             id="categoriesGodotE5BC95E6938E"
-            ><div class='name'>Godot引擎</div><div class='badge'>(1)</div></a></li>
+            ><div class='name'>Godot引擎</div><div class='badge'>(2)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/Hexo%E5%8D%9A%E5%AE%A2/" href="/categories/Hexo%E5%8D%9A%E5%AE%A2/"
@@ -848,7 +848,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-      <a href="/tags/GdScript/" style="font-size: 14px; color: #999">GdScript</a> <a href="/tags/Godot/" style="font-size: 14px; color: #999">Godot</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Volantis/" style="font-size: 14px; color: #999">Volantis</a>
+      <a href="/tags/AI/" style="font-size: 14px; color: #999">AI</a> <a href="/tags/GdScript/" style="font-size: 14px; color: #999">GdScript</a> <a href="/tags/Gdscript/" style="font-size: 14px; color: #999">Gdscript</a> <a href="/tags/Godot/" style="font-size: 24px; color: #555">Godot</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Volantis/" style="font-size: 14px; color: #999">Volantis</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%A1%88%E4%BE%8B%E7%B2%BE%E7%B2%B9/" style="font-size: 14px; color: #999">游戏人工智能案例精粹</a> <a href="/tags/%E7%8A%B6%E6%80%81%E6%9C%BA/" style="font-size: 14px; color: #999">状态机</a>
     </div>
   </section>
 
@@ -1974,7 +1974,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
       try {
         var currentUrl = window.location.pathname;
         var targetUrl = e.triggerElement.href;
-        var banUrl = [""];
+        var banUrl = ["/artitalk/"];
         if (banUrl[0] != "") {
           banUrl.forEach(item => {
             if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {

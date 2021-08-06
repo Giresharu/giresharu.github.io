@@ -332,13 +332,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                <a class="menuitem flat-box faa-parent animated-hover" href=/artitalk/
                   
                   
                   
-                    id="about"
+                    id="artitalk"
                   >
-                  <i class='fas fa-info-circle fa-fw'></i>关于
+                  <i class='fas fa-comment fa-fw'></i>随便BB
                 </a>
                 
               </li>
@@ -530,13 +530,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                <a class="menuitem flat-box faa-parent animated-hover" href=/artitalk/
                   
                   
                   
-                    id="about"
+                    id="artitalk"
                   >
-                  <i class='fas fa-info-circle fa-fw'></i>关于
+                  <i class='fas fa-comment fa-fw'></i>随便BB
                 </a>
                 
               </li>
@@ -617,11 +617,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               <i class='fas fa-archive fa-fw'></i><p>时间线</p>
             </a>
           
-            <a href="/about/"
+            <a href="/artitalk/"
               
               
-              id="about">
-              <i class='fas fa-info-circle fa-fw'></i><p>关于</p>
+              id="artitalk">
+              <i class='fas fa-comment fa-fw'></i><p>随便BB</p>
             </a>
           
             <a target="_blank" rel="noopener" href="https://www.marxists.org/chinese/index.html"
@@ -1823,7 +1823,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
       try {
         var currentUrl = window.location.pathname;
         var targetUrl = e.triggerElement.href;
-        var banUrl = [""];
+        var banUrl = ["/artitalk/"];
         if (banUrl[0] != "") {
           banUrl.forEach(item => {
             if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
