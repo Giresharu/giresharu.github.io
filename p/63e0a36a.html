@@ -743,7 +743,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="模块化的状态机"><a href="#模块化的状态机" class="headerlink" title="模块化的状态机"></a>模块化的状态机</h2><p>&emsp;&emsp;试想想看：如果我们把状态机的框架提取出来，使其可以挂在任何角色身上。然后再往状态机里塞进各个状态。每个状态都继承同一个类，拥有同样的函数，让状态机可以按照预先的设定调用它们。我们写好后，就可以随便创建新角色、增删状态，只需要专注状态的写法，而不用再去管状态机对状态的控制了。这就是模块化的状态机。</p>
 <p>&emsp;&emsp;我们先来看看实现模块化状态机的 UML 类图：</p>
 <div class="gallery center">
-              <img  src=http://www.plantuml.com/plantuml/svg/jLB1ReCm3BttApnET1DmHwYNgTgfqwIjkqvkS0iI92WnwgQk_xwGGXlQSbmEKUpdlFUSUFR01TK4eZMiQjXgknNCZKcJHEC-tfLSj9lMa1PACacEXQgJbrAJAL2tbrDV6PSggT4mwMHTLnyTzsm6TeaAZO6tSdTmOGI6aMc5eYWbGGhlNjXNV3LQ2J8cpAbYdBliySGc5HDKj6LGsuuqJUyLTykNYTTDRgDm3WuccJkY4oMh7Tctq73m3Vks1kTgBqdtPz5gRL_5bRdK4mmYVVXSeDoHAmZTFjs8BvQc8nxdoDEAbzyaMWixCvSQb3-J-BXVt1ZMADXlz73cwTRIVhWEFr6NA7a-Xdhs2R3aM-Guj7tzskVsJZugecRIpAlAwRwJUuYrCKuVhyHMXDN_QlNVx4GW-uqYy3g46-niw7JDJZPaSGn1bZMeiIRhQx48u39kNKNW_ZY0noXQGE0FV30QAV2y32aLzVhfQBpW3m00>
+              <img  src=http://www.plantuml.com/plantuml/svg/jL8zRuCm4DtpAwvCf1Mc7ReW55MgeawfAhNfMhbm0IgmaNtqGsd-Uus1n2HXh0VBT-_ytZlxPXUKOuMGD9fa1Hjbjfoerb4O9gbW7ph5ilXKJ225MHu-50frpbLpEB6ieBnvPuMyks7Nx3PSL-LBInhEPc1MKdAjuQd8jZOCG1CdNF4aBmH21CzEs5UyrKecgBLln8dFRNRNiGb922Lk2EIc9OsYSyNjScNOkavDvC_1mYXIIzHHaipGl8A2hMlOjJKubry2LNzE6gLGa2spgIiOHFhmFkSYGrlWstsw4LSiYaOyrf6ZnPRVc3G6jcOEDLpyJEBZVlcx9iKJSXlTxddQjHI4od_bgk22vcEePvy02pf5TaFRnw-zRw_pKIBMasOUPOhddPn3Z8rnUdSaja9U_gzM_yrM1EBV802dGpZ1zeQwQsQo8MOCl3YkkU8L6b-BXGU7SMihFFl77bm6mG8yT-2zqKY1usL8oQ3NZqRZ1Ny0>
             </div>
 
 <h3 id="·-State类与继承自State类的状态"><a href="#·-State类与继承自State类的状态" class="headerlink" title="· State类与继承自State类的状态"></a>· State类与继承自State类的状态</h3><p>&emsp;&emsp;先写一个状态的虚类：State 。但在 GDScript 中，并没有虚类与虚方法这一说，我们可以通过 pass 掉一个函数来达成类似的效果：</p>
@@ -838,7 +838,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-06T21:30:00+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-06T22:13:35+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年8月6日</p>
