@@ -5015,6 +5015,9 @@ p.p.h2 {
 .headimg-div .headimg-a {
   height: 140px !important;
 }
+span.function {
+  color: #eee !important;
+}
 .animated {
   -webkit-animation-duration: 0.4s;
   animation-duration: 0.4s;
